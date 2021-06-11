@@ -218,8 +218,8 @@ console.log('Task 1b:', artists[2].bio);
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
 
-artists[8].name = 'Vincent Van Gogh';
-console.log('Task 2:', artists[8].name);
+// artists[8].name = 'Vincent Van Gogh';
+// console.log('Task 2:', artists[8].name);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
  Use getArtistByIndex to do the following:
@@ -229,10 +229,10 @@ console.log('Task 2:', artists[8].name);
  
  Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(/*Your Code Here*/) {
-  /*Your Code Here*/
+function getArtistByIndex(array, index) {
+  return `the artist at index ${index} is ${array[index].name}`;
 }  
-
+console.log('Task 3:', getArtistByIndex(artists, [2]));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -243,9 +243,17 @@ Use get20s to do the following:
 Example born in 1901 and died in 1959 - included -- born in 1889 and died in 1925 not included
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/*Your Code Here*/){
-  /*Your Code Here*/
+function get20s(array){
+  let newArray = [];
+  for(let i = 0; i < array.length; i++){
+    let getYears = array[i].years.split(" - ")
+    if(getYears[0] >= 1900 && getYears[1] <= 1999){
+      newArray.push(array[i].name);
+    }
+  }
+  return newArray;
 }
+console.log('Task 4:', get20s(artists));
 
 
 
@@ -258,7 +266,7 @@ function get20s(/*Your Code Here*/){
  
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/){
+function removeArtist(array, index){
    /*Your Code Here*/
 }
    
@@ -292,10 +300,16 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/){
-  /*Your Code Here*/
+function lotsOfArt(array){
+  let newArray = [];
+  for(let i = 0; i < array.length; i++){
+    if(array[i].paintings > 100 ){
+      newArray.push(array[i].name);
+    }
+  }
+  return newArray;
 }
-
+console.log('Task 7:', lotsOfArt(artists));
 
 
 
